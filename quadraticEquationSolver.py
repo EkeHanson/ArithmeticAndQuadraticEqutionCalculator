@@ -24,23 +24,28 @@ while True:
     try:
         discriminant = (b ** 2) - 4 * a * c
         if discriminant == 0:
-            print(f'x\N{SUBSCRIPT ONE} = {-b/(2 * a)} and x\N{SUBSCRIPT TWO} = {-b/(2 * a)}')
+            print(f'x\N{SUBSCRIPT ONE} = {-b / (2 * a)} and x\N{SUBSCRIPT TWO} = {-b / (2 * a)}')
         elif discriminant > 0:
             square_root_discriminant = math.sqrt(discriminant)
-            root_1 = (-b + square_root_discriminant)/(2 * a)
-            root_2 = (-b - square_root_discriminant)/(2 * a)
+            root_1 = (-b + square_root_discriminant) / (2 * a)
+            root_2 = (-b - square_root_discriminant) / (2 * a)
             print(f'x\N{SUBSCRIPT ONE} = {root_1} and x\N{SUBSCRIPT TWO} = {root_2}')
         else:
             absolute_discriminant = abs(discriminant)
             square_root_discriminant = math.sqrt(absolute_discriminant)
-            real_part = -b/(2 * a)
+            real_part = -b / (2 * a)
             imaginary_part = square_root_discriminant / (2 * a)
-            print(f'x\N{SUBSCRIPT ONE} = {real_part} + {round(imaginary_part, 3)}i and x\N{SUBSCRIPT TWO} = {real_part} - {round(imaginary_part, 3)}i')
+            print(
+                f'x\N{SUBSCRIPT ONE} = {real_part} + {round(imaginary_part, 3)}i and x\N{SUBSCRIPT TWO} = {real_part} - {round(imaginary_part, 3)}i')
     except ZeroDivisionError:
         print("Error: 'a' coefficient cannot be zero.")
     except Exception as e:
         print(f"An error occurred: {e}")
-
-  
-
-    
+    choice = input('do you want to perform another calculation(y/n): ').capitalize()
+    if choice == 'Y':
+        continue
+    elif choice == 'N':
+        print('Exting...')
+        break
+    else:
+        print('Wrong input')
